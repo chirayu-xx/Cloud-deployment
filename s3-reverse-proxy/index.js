@@ -3,7 +3,7 @@ const httpProxy = require('http-proxy')
 
 const app = express();
 
-const PORT = 8000
+const PORT = process.env.PORT || 8000;
 
 const BASE_PATH ='https://cloud-deployment-outputs.s3.ap-south-1.amazonaws.com/__outputs'
 
