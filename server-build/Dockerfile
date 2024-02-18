@@ -12,6 +12,7 @@ RUN apt-get install git -y
 WORKDIR /home/app
 
 COPY main.sh main.sh
+COPY .env .env
 COPY script.js script.js
 COPY package*.json .
 

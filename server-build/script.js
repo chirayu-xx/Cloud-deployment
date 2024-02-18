@@ -4,16 +4,19 @@ const path = require('path');
 const mime = require('mime-types');
 const {S3Client, PutObjectCommand} = require('@aws-sdk/client-s3')
 
+const accessKey = process.env.AWS_ACCESS_KEY
+const accessSecret = process.env.AWS_ACCESS_SECRET
+const PROJECT_ID = process.env.PROJECT_ID
+const FRAMEWORK = process.env.FRAMEWORK;
+
 const s3Client = new S3Client({
     region:'ap-south-1',
     credentials:{
-        accessKeyId:'AKIAW3MEBVRFCBHXXQFS',
-        secretAccessKey:'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'
+        accessKeyId: accessKey,
+        secretAccessKey: accessSecret
     }
 })
 
-const PROJECT_ID = process.env.PROJECT_ID
-const FRAMEWORK = process.env.FRAMEWORK;
 const folderToUse = FRAMEWORK == 'vite'? 'dist' :'build';
 
 async function buildRepo() {

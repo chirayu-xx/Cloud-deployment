@@ -1,15 +1,20 @@
+require('dotenv').config();
 const express = require('express')
 const {ECSClient, RunTaskCommand} = require('@aws-sdk/client-ecs')
 const {generateSlug} = require('random-word-slugs')
 
 const app = express();
 const PORT = 9000
+const accessKey = process.env.AWS_ACCESS_KEY
+const accessSecret = process.env.AWS_ACCESS_SECRET
+
+console.log(accessKey, accessSecret)
 
 const ecsClient = new ECSClient({
     region :'us-east-1',
     credentials:{
-        accessKeyId:'AKIAW3MEBVRFCBHXXQFS',
-        secretAccessKey:'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'
+        accessKeyId: accessKey,
+        secretAccessKey: accessSecret,
     }
 })
 
@@ -45,7 +50,9 @@ app.post('/project', async (req, res) => {
                     environment : [
                         {name: 'GIT_REPOSITORY_URL', value : gitURL},
                         {name: 'PROJECT_ID', value: projectSlug},
-                        {name: 'FRAMEWORK', value: frameWork}
+                        {name: 'FRAMEWORK', value: frameWork},
+                        {name: 'AWS_ACCESS_KEY', value: accessKey},
+                        {name: 'AWS_ACCESS_SECRET', value: accessSecret}
                     ]
                 }
             ]
