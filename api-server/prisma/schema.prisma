@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum DeploymentStatus{
+  QUEUED
+  IN_PROGRESS
+  READY
+  FAILED
+  NOT_STARTED 
+}
+
+
+model User {
+  id       String   @id @default(uuid())
+  email    String   @unique
+  name     String?
+  password String
+  // projects Project[]
+}
+
+
+model Project{
+  id String @id @default(uuid())
+  name String
+  frameWork String    
+  gitURL String @map("git_url")
+  subDomain String @map("sub_domain")
+  customDomain String? @map("custom_domain")
+  // createdBy String @map("created_by")
+  // user User @relation(fields: [createdBy], references: [id])
+  Deployment Deployment[]
+}
+
+model Deployment{
+  id String @id @default(uuid())
+  project Project @relation(fields: [projectId], references: [id])
+  projectId String @map("project_id")
+  status DeploymentStatus @default(NOT_STARTED)
+}
+
