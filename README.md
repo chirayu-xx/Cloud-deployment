@@ -26,7 +26,7 @@ This project is a deployment platform inspired by Vercel but tailored to specifi
 
 ## Demonstration Video
 
-Check out the [demonstration video](Demo.mp4) for a visual walkthrough of the deployment platform in action.
+Check out the [demonstration video](https://drive.google.com/file/d/1pKtuNAm4ZbYI-yzmaOBt4R6fO7TuFsLY/view?usp=sharing) for a visual walkthrough of the deployment platform in action.
 
 ## Getting Started
 
