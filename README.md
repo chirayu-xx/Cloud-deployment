@@ -33,7 +33,7 @@ Check out the [demonstration video](https://drive.google.com/file/d/1pKtuNAm4ZbY
 To get started with the deployment platform, follow these steps:
 
 1. Clone the repository.
-2. Navigate to each folder (`s3-reverse-proxy`, `api-server`, `docker-build-server`, `frontend`) and follow the setup instructions provided in their respective README files.
+2. Navigate to each folder (`s3-reverse-proxy`, `api-server`, `server-build`, `frontend`) and follow the setup instructions provided in their respective README files.
 3. Once set up, deploy your projects by providing the Git URL, and the platform will handle the rest autonomously.
 
 ## Contributors
