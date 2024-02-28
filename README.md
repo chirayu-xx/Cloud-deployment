@@ -1,4 +1,4 @@
- # Cloud Deplyments
+ # Cloud Deployments
 
 ## Overview
 
